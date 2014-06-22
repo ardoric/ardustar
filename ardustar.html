@@ -1,0 +1,319 @@
+<html>
+<head>
+<title>Ardustar simulator</title>
+<style>
+div#ardustar_0 {
+	position: absolute;
+	left: 450px;
+	top: 300px;
+}
+
+div#ardustar_1 {
+	position: absolute;
+	left: 400px;
+	top: 200px;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+div#ardustar_2 {
+	position: absolute;
+	left: 300px;
+	top: 150px;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+div#ardustar_3 {
+	position: absolute;
+	left: 200px;
+	top: 200px;
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+div#ardustar_4 {
+	position: absolute;
+	top: 300px;
+	left: 150px;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+div#ardustar_5 {
+	position: absolute;
+	top: 400px;
+	left: 200px;
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+div#ardustar_6 {
+	position: absolute;
+	left: 300px;
+	top: 450px;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+div#ardustar_7 {
+	position: absolute;
+	left: 400px;
+	top: 400px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+div#program_input {
+	position: absolute;
+	left: 600px;
+}
+
+div#controls {
+	position: absolute;
+	left: 370px;
+	top: 300px;
+	display: none;
+}
+</style>
+
+</head>
+
+
+<body>
+
+<div id="program_input">
+Speed <img title="Speed controls how fast the state changes." src="img/hlp.png" width="10" height="10"/>:<select id="speed" onchange="javascript:updateSpeed()">
+	<option value="50">Very Fast</option>
+	<option value="100">Fast</option>
+	<option value="200" selected>Normal</option>
+	<option value="500">Slow</option>
+	<option value="1000">Very Slow</option>
+</select><br />
+<textarea id="program" rows="8" cols="50">
+10000000
+10000000
+10000000
+10000000
+10000000
+10000000
+10000000
+10000000</textarea><br />
+<input type="button" onclick="javascript:setProgram();" value="Run"/>
+<input type="button" onclick="javascript:startProgramming();" value="Start Programming" />
+</div>
+
+<div id="controls">
+<input type="button" id="back_control" onclick="javascript:backProg();" value="<" /><input type="button" onclick="javascript:forwardProg();" value=">" />
+</div>
+
+
+<div id="ardustar">
+<div id="ardustar_0">
+  <a href="javascript:toggle(0)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+<div id="ardustar_1">
+  <a href="javascript:toggle(1)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+
+<div id="ardustar_2">
+  <a href="javascript:toggle(2)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+<div id="ardustar_3">
+  <a href="javascript:toggle(3)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+<div id="ardustar_4">
+  <a href="javascript:toggle(4)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+<div id="ardustar_5">
+  <a href="javascript:toggle(5)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+<div id="ardustar_6">
+  <a href="javascript:toggle(6)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+<div id="ardustar_7">
+  <a href="javascript:toggle(7)"><img src="img/blk.png" width="22" height="22"/></a>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+  <img src="img/blk.png" width="20" height="20"/>
+</div>
+
+</div>
+
+<script>
+function update(row) {
+    imgs = document.getElementById(row.div).getElementsByTagName('img')
+	for (i = 0; i < 8; i++) {
+	   if (row.state[i] == "0")
+	      imgs[i].src = 'img/blk.png'
+	    else
+		  imgs[i].src = 'img/grn.png'
+	}
+}
+
+function shift(row) {
+	row.state = (row.program[row.pos] + row.state).substring(0,8);
+	row.pos = row.pos + 1;
+	if (row.pos >= row.program.length)
+		row.pos = 0
+}
+
+var stars = new Array();
+for (var i = 0; i < 8; i++) {
+	stars[i] = { state: '00000000', program: '10000000', pos: 0, div: 'ardustar_'+i };
+}
+
+function animate() {
+	for (var i = 0; i < stars.length; i++) {
+	shift(stars[i]);
+	}
+
+	for (var i = 0; i < stars.length; i++) {
+	update(stars[i]);
+	}
+}
+
+var timer = setInterval(animate, 200);
+var programming = false;
+
+function setProgram() {
+	var prog = document.getElementById('program').value.split("\n");
+	clearTimeout(timer);
+	
+	for (var i = 0; i < 8; i++) {
+		stars[i] = { state: '00000000', program: prog[i], pos: 0, div: 'ardustar_'+i };
+		update(stars[i]);
+	}
+	
+	timer = setInterval(animate, parseInt(document.getElementById('speed').value));
+	document.getElementById('program').disabled = false;
+	document.getElementById('controls').style.display = "none";
+	programming = false;
+}
+
+
+function toggle(a) {
+	if (!programming) return ; 
+	if (stars[a].state[0] == "0") {
+		stars[a].state = "1" + stars[a].state.substr(1,7);
+		stars[a].program = stars[a].program.substr(0,stars[a].program.length-1) + "1";
+	} else {
+		stars[a].state = "0" + stars[a].state.substr(1,7);
+		stars[a].program = stars[a].program.substr(0,stars[a].program.length-1) + "0";
+	}
+	update(stars[a]);
+	updateProgram();
+}
+
+function forwardProg() {
+	for (var i = 0; i < 8; i++) {
+		stars[i].program = stars[i].program + "0";
+		stars[i].state = "0" + stars[i].state;
+		update(stars[i]);
+	}
+	document.getElementById('back_control').disabled = false;
+	updateProgram();
+}
+
+function backProg() {
+	for (var i = 0; i < 8; i++) {
+		stars[i].program = stars[i].program.substr(0,stars[i].program.length-1) ;
+		stars[i].state = stars[i].state.substr(1,stars[i].state.length-1);
+		update(stars[i]);
+	}
+	if (stars[0].program.length == 1)
+		document.getElementById('back_control').disabled = true;
+	updateProgram();
+}
+
+
+function updateProgram() {
+	var prog = new Array();
+	for (var i = 0; i < 8; i++) {
+		prog[i] = stars[i].program;
+	}
+	document.getElementById('program').value = prog.join("\n");
+}
+
+function startProgramming() {
+	programming = true;
+	clearTimeout(timer);
+	for (var i = 0; i < 8; i++) {
+		stars[i] = { state: '00000000', program: '0', pos: 0, div: 'ardustar_'+i };
+		update(stars[i]);
+	}
+	document.getElementById('program').disabled = true;
+	document.getElementById('controls').style.display = "block"
+	document.getElementById('back_control').disabled = true;
+	updateProgram();
+}
+
+function updateSpeed() {
+	clearTimeout(timer);
+	timer = setInterval(animate, parseInt(document.getElementById('speed').value))
+}
+
+</script>
+
+
+</body>
+</html>
